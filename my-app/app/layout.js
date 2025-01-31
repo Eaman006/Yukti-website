@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import ThemeProvider from "./providers/ThemeProvider"; // Import ThemeProvider
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,18 +14,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Yukti |A VR-based Learning app for Autism",
-  description: "A VR app develope for the Autisms",
+  title: "Yukti | A VR-based Learning App for Autism",
+  description: "A VR app developed for Autism",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar />
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-300`}>
+        <ThemeProvider>
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
