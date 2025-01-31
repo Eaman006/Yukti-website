@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Yukti",
+  title: "Yukti |A VR-based Learning app for Autism",
   description: "A VR app develope for the Autisms",
 };
 
