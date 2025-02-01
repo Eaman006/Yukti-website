@@ -3,13 +3,16 @@
 import React from "react";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 import { useTheme } from "../providers/ThemeProvider";
+import Image from "next/image";
+
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
     <div className="m-2 p-2 flex justify-between items-center bg-white dark:bg-gray-900 text-black dark:text-white shadow-md">
-      <div className="text-xl font-bold">Yukti</div>
+      <div className="text-xl font-bold">Yukti       
+      </div>
 
       <ul className="flex gap-5">
         <li className="hover:text-red-600 cursor-pointer">Home</li>
