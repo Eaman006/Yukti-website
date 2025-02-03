@@ -4,10 +4,17 @@ import React from "react";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 import { useTheme } from "../providers/ThemeProvider";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
+  const pathname = usePathname();
+  const getpathname=(path)=>{
+    return pathname===path ? 'text-red-600':'hover:text-red-600';
+  };
+  
 
   return (
     <div className="m-2 p-2 flex justify-between items-center bg-white dark:bg-gray-900 text-black dark:text-white shadow-md">
@@ -15,9 +22,14 @@ const Navbar = () => {
       </div>
 
       <ul className="flex gap-5">
-        <li className="hover:text-red-600 cursor-pointer">Home</li>
-        <li className="hover:text-red-600 cursor-pointer">About Us</li>
-        <li className="hover:text-red-600 cursor-pointer">Contact Us</li>
+        <li className={`cursor-pointer ${getpathname('/')}`}>
+          <Link href="/">Home</Link>
+        </li>
+        <li className={`cursor-pointer ${getpathname('/About')}`}>
+          <Link href="/About">About Us</Link>
+        </li>
+        <li className={`cursor-pointer ${getpathname('/Contact')}`}>
+          <Link href="/Contact">Contact Us</Link></li>
         <button
         onClick={toggleTheme}
         className="p-2 rounded-full transition-all duration-300 bg-gray-200 dark:bg-gray-800"
