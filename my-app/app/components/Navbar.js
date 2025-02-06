@@ -21,14 +21,14 @@ const Navbar = () => {
       <div className="text-xl font-bold">Yukti       
       </div>
 
-      <ul className="flex gap-5">
-        <li className={`cursor-pointer ${getpathname('/')}`}>
+      <ul className="flex gap-5 font-bold">
+        <li className={`cursor-pointer p-2 ${getpathname('/')}`}>
           <Link href="/">Home</Link>
         </li>
-        <li className={`cursor-pointer ${getpathname('/About')}`}>
+        <li className={`cursor-pointer p-2 ${getpathname('/About')}`}>
           <Link href="/About">About Us</Link>
         </li>
-        <li className={`cursor-pointer ${getpathname('/Contact')}`}>
+        <li className={`cursor-pointer p-2 ${getpathname('/Contact')}`}>
           <Link href="/Contact">Contact Us</Link></li>
         <button
         onClick={toggleTheme}
