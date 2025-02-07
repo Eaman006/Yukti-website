@@ -22,8 +22,7 @@ const Navbar = () => {
     <div className={`m-2 p-2 flex justify-between items-center bg-white dark:bg-gray-900 text-black dark:text-white shadow-md ${myFont.className}`}>
       <div className="m-0 cursor-pointer">
         <Link href="/">
-        <div className="text-4xl font-bold text-center">Yukti</div>
-        <div className="text-xs font-normal text-center pl-2">Experience, Engage, Excel</div>
+        <Image width={140} height={50} src="/logo.png" alt="logo" />
         </Link>
       </div>
 
