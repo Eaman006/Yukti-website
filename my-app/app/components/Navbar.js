@@ -22,7 +22,7 @@ const Navbar = () => {
     <div className={`m-2 p-2 flex justify-between items-center bg-white dark:bg-gray-900 text-black dark:text-white shadow-md ${myFont.className}`}>
       <div className="m-0 cursor-pointer">
         <Link href="/">
-        <Image width={140} height={50} src="/logo.png" alt="logo" />
+        <Image width={150} height={50} src="/logo.png" alt="logo" />
         </Link>
       </div>
 
