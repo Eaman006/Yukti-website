@@ -6,6 +6,8 @@ import { useTheme } from "../providers/ThemeProvider";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import localFont from 'next/font/local';
+const myFont = localFont({ src: './Montserrat-VariableFont_wght.ttf' });
 
 
 const Navbar = () => {
@@ -17,11 +19,11 @@ const Navbar = () => {
   
 
   return (
-    <div className="m-2 p-2 flex justify-between items-center bg-white dark:bg-gray-900 text-black dark:text-white shadow-md">
+    <div className={`m-2 p-2 flex justify-between items-center bg-white dark:bg-gray-900 text-black dark:text-white shadow-md ${myFont.className}`}>
       <div className="text-xl font-bold">Yukti       
       </div>
 
-      <ul className="flex gap-5 font-bold">
+      <ul className="flex gap-5">
         <li className={`cursor-pointer p-2 ${getpathname('/')}`}>
           <Link href="/">Home</Link>
         </li>
