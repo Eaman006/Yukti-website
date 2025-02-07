@@ -20,8 +20,10 @@ const Navbar = () => {
 
   return (
     <div className={`m-2 p-2 flex justify-between items-center bg-white dark:bg-gray-900 text-black dark:text-white shadow-md ${myFont.className}`}>
-      <div className="text-xl font-bold">Yukti       
+      <div className="text-xl font-bold">Yukti
+      <div className="text-sm font-normal">Experience, Engage, Excel</div>       
       </div>
+      
 
       <ul className="flex gap-5 font-bold">
         <li className={`cursor-pointer p-2 ${getpathname('/')}`}>
