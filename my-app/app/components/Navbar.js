@@ -23,7 +23,7 @@ const Navbar = () => {
       <div className="text-xl font-bold">Yukti       
       </div>
 
-      <ul className="flex gap-5">
+      <ul className="flex gap-5 font-bold">
         <li className={`cursor-pointer p-2 ${getpathname('/')}`}>
           <Link href="/">Home</Link>
         </li>
