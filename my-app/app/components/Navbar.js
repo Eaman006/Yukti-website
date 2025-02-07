@@ -20,8 +20,8 @@ const Navbar = () => {
 
   return (
     <div className={`m-2 p-2 flex justify-between items-center bg-white dark:bg-gray-900 text-black dark:text-white shadow-md ${myFont.className}`}>
-      <div className="text-xl font-bold">Yukti
-      <div className="text-sm font-normal">Experience, Engage, Excel</div>       
+      <div className="text-4xl font-bold">Yukti
+      <div className="text-xs font-normal">Experience, Engage, Excel</div>       
       </div>
       
 
