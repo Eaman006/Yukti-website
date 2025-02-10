@@ -19,3 +19,21 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* Customize scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* Adjust width */
+}
+
+::-webkit-scrollbar-track {
+  background: #0000000e; /* Change track background */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #626262; /* Change thumb color */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569; /* Darken on hover */
+  cursor: pointer;
+}
