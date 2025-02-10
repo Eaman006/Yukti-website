@@ -19,7 +19,7 @@ const Navbar = () => {
 
 
   return (
-    <div className={`p-2 flex justify-between items-center bg-white dark:bg-gray-900 text-black dark:text-white shadow-md ${myFont.className} fixed w-full`}>
+    <div className={`p-2 flex justify-between items-center bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-300 shadow-md ${myFont.className} fixed w-full`}>
       <div className="m-0 cursor-pointer">
         <Link href="/">
         <Image width={150} height={50} src="/logo.png" alt="logo" />
@@ -38,7 +38,7 @@ const Navbar = () => {
           <Link href="/Contact">Contact Us</Link></li>
         <button
           onClick={toggleTheme}
-          className="p-2 rounded-full transition-all duration-300 bg-gray-200 dark:bg-gray-800"
+          className="p-2 rounded-full hover:bg-slate-400 transition-all duration-300 bg-gray-200 dark:bg-gray-800 dark:hover:bg-slate-200"
         >
           {theme === "dark" ? (
             <SunIcon className="w-6 h-6 text-yellow-400" />
