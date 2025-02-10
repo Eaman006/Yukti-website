@@ -36,16 +36,18 @@ const Navbar = () => {
         </li>
         <li className={`cursor-pointer p-2 ${getpathname('/Contact')}`}>
           <Link href="/Contact">Contact Us</Link></li>
-        <button
-          onClick={toggleTheme}
-          className="p-2 rounded-full hover:bg-slate-400 transition-all duration-300 bg-gray-200 dark:bg-gray-800 dark:hover:bg-slate-200"
-        >
-          {theme === "dark" ? (
-            <SunIcon className="w-6 h-6 text-yellow-400" />
-          ) : (
-            <MoonIcon className="w-6 h-6 text-gray-800" />
-          )}
-        </button>
+          <button
+  onClick={toggleTheme}
+  className="p-2 rounded-full hover:bg-slate-400 transition-all duration-300 bg-gray-200 dark:bg-gray-800 dark:hover:bg-slate-200"
+>
+  <div className="hover:transition-transform hover:duration-500 hover:ease-in-out hover:transform hover:scale-100 hover:rotate-0 hover:dark:rotate-180 hover:dark:scale-125">
+    {theme === "dark" ? (
+      <SunIcon className="w-6 h-6 text-yellow-400" />
+    ) : (
+      <MoonIcon className="w-6 h-6 text-gray-800" />
+    )}
+  </div>
+</button>
       </ul>
 
     </div>
