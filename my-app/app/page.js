@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BsChevronDoubleDown } from "react-icons/bs";
 
 
 export default function Home() {
@@ -12,10 +13,14 @@ export default function Home() {
           <div className="text-white text-5xl font-extrabold text-center m-2">
             Stepping into Virtual
           </div>
-          <div className="text-center m-2 text-lg">
+          <div className="text-center m-2 text-lg text-white">
             Transforming Learning for the Neurodiverse.
           </div>
+          
         </div>
+        <div className="absolute bottom-3 left-1/2">
+            <button className="m-2 text-white bg-blue-400 hover:bg-blue-700 hover:active:bg-blue-500 rounded-xl p-2 text-center font-bold flex">Discover Us <BsChevronDoubleDown className="mt-1 mx-2" /></button>
+          </div>
       </div>
 
 
