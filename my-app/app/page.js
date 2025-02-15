@@ -4,11 +4,20 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div>
-      <div className="pt-10 w-full h-screen bg-[#c9cff0]">
-  <video autoPlay loop muted playsInline className="w-full h-full object-fill">
-    <source src="/10.mp4" type="video/mp4" />
-  </video>
-</div>
+      <div className="relative w-full h-screen">
+        <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-fill z-[-1]">
+          <source src="/10.mp4" type="video/mp4" />
+        </video>
+        <div className="relative flex-row justify-center  pt-28">
+          <div className="text-white text-5xl font-extrabold text-center m-2">
+            Stepping into Virtual
+          </div>
+          <div className="text-center m-2 text-lg">
+            Transforming Learning for the Neurodiverse.
+          </div>
+        </div>
+      </div>
+
 
       <div>
         <div className="absolute z-[-1] w-full h-40">
