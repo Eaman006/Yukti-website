@@ -27,7 +27,7 @@ export default function Home() {
         </div>
       </div>
       <div className="bg-[#eb5b00] p-2 h-screen">
-        <div className="mx-5 text-4xl font-bold my-14">
+        <div className="mx-5 text-5xl font-extrabold my-14 text-center">
           Features
         </div>
         <div className="flex gap-14 mx-5">
@@ -57,7 +57,7 @@ export default function Home() {
           </div>
           <div className="flex-row">
             <div className="ml-10">
-              <Image src="/7.png" width={220} height={220} alt="vr image4"/>
+              <Image src="/7.png" width={235} height={235} alt="vr image4"/>
             </div>
             <div className="text-center font-bold text-2xl">
               Parent and doctors monitoring
