@@ -1,40 +1,62 @@
+"use client"
+import { useRef } from "react";
 import Image from "next/image";
 import { BsChevronDoubleDown } from "react-icons/bs";
 
-
 export default function Home() {
+  // Reference for the target section
+  const discoverSectionRef = useRef(null);
+
+  // Scroll function
+  const handleScroll = () => {
+    if (discoverSectionRef.current) {
+      discoverSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <div>
       <div className="relative w-full h-screen">
+        {/* Background Video */}
         <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-fill z-[-1]">
           <source src="/10.mp4" type="video/mp4" />
         </video>
-        <div className="relative flex-row justify-center  pt-28">
-          <div className="text-white text-5xl font-extrabold text-center m-2">
+
+        {/* Heading and Subheading */}
+        <div className="relative flex flex-col items-center pt-28 h-full text-center">
+          <div className="text-white text-5xl font-extrabold m-2">
             Stepping into Virtual
           </div>
-          <div className="text-center m-2 text-lg text-white">
+          <div className="text-lg text-white m-2">
             Transforming Learning for the Neurodiverse.
           </div>
-          
         </div>
-        <div className="absolute bottom-3 left-1/2">
-            <button className="m-2 text-white bg-blue-400 hover:bg-blue-700 hover:active:bg-blue-500 rounded-xl p-2 text-center font-bold flex">Discover Us <BsChevronDoubleDown className="mt-1 mx-2" /></button>
-          </div>
+
+        {/* Discover Button */}
+        <div ref={discoverSectionRef} className="absolute bottom-3 left-1/2 -translate-x-1/2">
+          <button 
+            onClick={handleScroll}
+            className="m-2 text-white bg-blue-400 hover:bg-blue-700 active:bg-blue-500 rounded-xl p-2 text-center font-bold flex"
+          >
+            Discover Us <BsChevronDoubleDown className="mt-1 mx-2" />
+          </button>
+        </div>
       </div>
 
-
+      {/* Section to Scroll To */}
       <div>
         <div className="absolute z-[-1] w-full h-40">
           <Image src="/upper section.png" layout="fill" objectFit="fit" alt="background" />
         </div>
 
-        <div className="pt-7 text-center pl-14 pr-20 font-bold w-full bg-cover bg-center text-black text-2xl h-40" >
+        <div className="pt-7 text-center pl-14 pr-20 font-bold w-full bg-cover bg-center text-black text-2xl h-40">
           At Yukti, we believe every individual deserves a fun, safe space to learn and grow. Our mission is to empower the neurodiverse by creating engaging virtual worlds where everyday skills are built, right from home.
         </div>
       </div>
+
+      {/* Other Content */}
       <div className="flex">
-        <div >
+        <div>
           <Image src="/1.png" width={400} height={200} alt="1st image" />
         </div>
         <div className="pl-20 bg-[#cba35c] ml-auto">
@@ -43,6 +65,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       <div className="bg-[#eb5b00] p-2 h-screen">
         <div className="mx-5 text-5xl font-extrabold my-14 text-center">
           Features
@@ -88,11 +111,8 @@ export default function Home() {
               ADHD Friendly UI
             </div>
           </div>
-
         </div>
-
       </div>
-
     </div>
   );
 }
