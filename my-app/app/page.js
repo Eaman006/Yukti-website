@@ -2,41 +2,29 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { BsChevronDoubleDown } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const boxRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isShrunk, setIsShrunk] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
       if (boxRef.current) {
         const rect = boxRef.current.getBoundingClientRect();
-        const inView = rect.top < window.innerHeight * 1; 
-        const shrinkTrigger = rect.bottom < window.innerHeight * 1.2; // Starts shrinking 20% before exit
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        const shrinkTrigger = rect.bottom < window.innerHeight * 0.9;
 
-        if (currentScrollY > lastScrollY) {
-          // Scrolling down: Expand and keep it visible
-          if (inView) {
-            setIsVisible(true);
-            setIsShrunk(false);
-          }
+        if (window.scrollY > lastScrollY) {
+          if (inView) setIsVisible(true);
         } else {
-          // Scrolling up: Shrink and keep it hidden before fully exiting
-          if (shrinkTrigger) {
-            setIsShrunk(true);
-            setIsVisible(false);
-          }
+          if (!shrinkTrigger) setIsVisible(false);
         }
       }
-
-      setLastScrollY(currentScrollY);
+      setLastScrollY(window.scrollY);
     };
 
-    // ✅ Check if the box is already in view when the page loads
     const checkInitialVisibility = () => {
       if (boxRef.current) {
         const rect = boxRef.current.getBoundingClientRect();
@@ -46,7 +34,7 @@ export default function Home() {
       }
     };
 
-    checkInitialVisibility(); // Call this function once on mount
+    checkInitialVisibility();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
@@ -60,12 +48,8 @@ export default function Home() {
         </video>
 
         <div className="relative flex flex-col items-center pt-28 h-full text-center">
-          <div className="text-white text-5xl font-extrabold m-2">
-            Stepping into Virtual
-          </div>
-          <div className="text-lg text-white m-2">
-            Transforming Learning for the Neurodiverse.
-          </div>
+          <div className="text-white text-5xl font-extrabold m-2">Stepping into Virtual</div>
+          <div className="text-lg text-white m-2">Transforming Learning for the Neurodiverse.</div>
         </div>
 
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2">
@@ -77,16 +61,19 @@ export default function Home() {
 
       {/* White Box with Expand/Shrink Behavior */}
       <div className="flex items-center justify-center bg-gray-200">
-        <div
+        <motion.div
           ref={boxRef}
-          className={`scroll-box ${isVisible ? "expand" : isShrunk ? "shrink" : "hidden"} bg-white p-6 rounded-lg shadow-lg w-[calc(100%-60px)] max-w-none m-8`}
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={isVisible ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="bg-white p-6 rounded-lg shadow-lg w-[calc(100%-60px)] max-w-none m-8"
         >
           <div className="py-8 px-10 text-center font-bold text-black text-2xl">
             At Yukti, we believe every individual deserves a fun, safe space to learn and grow.
             Our mission is to empower the neurodiverse by creating engaging virtual worlds where
             everyday skills are built, right from home.
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Other Content */}
@@ -102,49 +89,37 @@ export default function Home() {
       </div>
 
       <div className="bg-[#eb5b00] p-2 h-screen">
-        <div className="mx-5 text-5xl font-extrabold my-14 text-center">
-          Features
-        </div>
+        <div className="mx-5 text-5xl font-extrabold my-14 text-center">Features</div>
         <div className="flex gap-14 mx-5">
           <div className="flex-row">
             <div>
               <Image src="/6.png" width={250} height={250} alt="vr image1" />
             </div>
-            <div className="text-center font-bold text-2xl">
-              Virtual Classroom
-            </div>
+            <div className="text-center font-bold text-2xl">Virtual Classroom</div>
           </div>
           <div className="flex-row">
             <div>
               <Image src="/4.png" width={250} height={250} alt="vr image2" />
             </div>
-            <div className="text-center font-bold text-2xl">
-              Interactive characters
-            </div>
+            <div className="text-center font-bold text-2xl">Interactive characters</div>
           </div>
           <div className="flex-row">
             <div>
               <Image src="/5.png" width={300} height={300} alt="vr image3" />
             </div>
-            <div className="text-center font-bold text-2xl">
-              Personalized learning paths
-            </div>
+            <div className="text-center font-bold text-2xl">Personalized learning paths</div>
           </div>
           <div className="flex-row">
             <div className="ml-10">
               <Image src="/7.png" width={235} height={235} alt="vr image4" />
             </div>
-            <div className="text-center font-bold text-2xl">
-              Parent and doctors monitoring
-            </div>
+            <div className="text-center font-bold text-2xl">Parent and doctors monitoring</div>
           </div>
           <div className="flex-row">
             <div>
               <Image src="/8.png" width={300} height={300} alt="vr image5" />
             </div>
-            <div className="text-center font-bold text-2xl">
-              ADHD Friendly UI
-            </div>
+            <div className="text-center font-bold text-2xl">ADHD Friendly UI</div>
           </div>
         </div>
       </div>
