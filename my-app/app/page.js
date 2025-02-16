@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { BsChevronDoubleDown } from "react-icons/bs";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
 export default function Home() {
@@ -14,6 +14,9 @@ export default function Home() {
   const restartTyping = () => {
     setKey((prevKey) => prevKey + 1); // Change key to reset Typewriter
   };
+  const imagesRef = useRef(null);
+  const isInView = useInView(imagesRef, { once: false, margin: "-100px 0px" });
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,7 +59,7 @@ export default function Home() {
       {/* Hero Section */}
       <div className="relative w-full h-screen">
         <div className="absolute top-0 left-0 bg-[#d2d8fb] z-[-1] w-full h-full">
-          <video autoPlay loop muted playsInline className="w-full h-full object-contain">
+          <video autoPlay loop muted playsInline className="w-full h-full object-fill">
             <source src="/10.mp4" type="video/mp4" />
           </video>
         </div>
@@ -99,16 +102,22 @@ export default function Home() {
         </motion.div>
       </div>
 
-      <div className="flex">
+      <motion.div
+        ref={imagesRef}
+        initial={{ opacity: 0, y: 50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="flex opacity-100"
+      >
         <div>
-          <Image src="/1.png" width={400} height={200} alt="1st image" />
+          <Image src="/1.png" width={400} height={200} alt="1st image" priority={true} />
         </div>
         <div className="pl-20 bg-[#cba35c] ml-auto">
           <div className="bg-[#754e1a] h-full">
-            <Image src="/3.png" width={500} height={500} alt="1" />
+            <Image src="/3.png" width={500} height={500} alt="2nd image" priority={true} />
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <div className="bg-gradient-to-r from-[#2f1ab4] to-[#7f7fff] p-2 h-full">
         <div className="mx-5 text-5xl font-extrabold my-14 text-center">Features</div>
