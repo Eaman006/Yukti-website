@@ -15,7 +15,7 @@ const Navbar = () => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition(); // Handles loading state
 
-  const getpathname = (path) => (pathname === path ? "text-red-600" : "hover:text-red-600");
+  const getpathname = (path) => (pathname === path ? "text-red-600 border-red-600 hover:-translate-y-1" : "hover:text-red-400 border-transparent hover:border-red-400 hover:-translate-y-1");
 
   // Custom function to handle navigation with loading
   const handleNavigation = (url) => {
@@ -34,18 +34,18 @@ const Navbar = () => {
       )}
 
       <div className={`p-2 flex justify-between items-center bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-300 shadow-md ${myFont.className} fixed w-full z-50`}>
-        <div className="m-0 cursor-pointer">
+        <div className="m-0 cursor-pointer drop-shadow-3xl">
           <Image width={150} height={50} src="/logo.png" alt="logo" />
         </div>
 
         <ul className="flex gap-5 font-bold">
-          <li className={`cursor-pointer p-2 ${getpathname("/")}`}>
+          <li className={`cursor-pointer p-2 hover:scale-110 transition-all duration-300 border-b-2 ${getpathname("/")}`}>
             <button onClick={() => handleNavigation("/")}>Home</button>
           </li>
-          <li className={`cursor-pointer p-2 ${getpathname("/About")}`}>
+          <li className={`cursor-pointer p-2 hover:scale-110 transition-all duration-300 border-b-2 ${getpathname("/About")}`}>
             <button onClick={() => handleNavigation("/About")}>About Us</button>
           </li>
-          <li className={`cursor-pointer p-2 ${getpathname("/Contact")}`}>
+          <li className={`cursor-pointer p-2 hover:scale-110 transition-all duration-300 border-b-2 ${getpathname("/Contact")}`}>
             <button onClick={() => handleNavigation("/Contact")}>Contact Us</button>
           </li>
 

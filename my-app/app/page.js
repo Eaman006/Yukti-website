@@ -48,25 +48,24 @@ export default function Home() {
         </video>
 
         <div className="relative flex flex-col items-center pt-28 h-full text-center">
-          <div className="text-white text-5xl font-extrabold m-2">Stepping into Virtual</div>
-          <div className="text-lg text-white m-2">Transforming Learning for the Neurodiverse.</div>
+          <div className="text-white text-5xl font-extrabold m-2">Stepping into <span className="text-red-400">Virtual</span></div>
+          <div className="text-xl font-bold text-white m-2">Transforming Your <span className="text-2xl text-red-500">Reality</span></div>
         </div>
 
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2">
-          <button className="m-2 text-white bg-blue-400 hover:bg-blue-700 active:bg-blue-500 rounded-xl p-2 text-center font-bold flex">
+          <button className="m-2 text-white bg-blue-400 hover:bg-blue-700 hover:scale-125 active:bg-blue-500 rounded-2xl pl-4 p-2 text-center font-bold flex transition-all duration-300">
             Discover Us <BsChevronDoubleDown className="mt-1 mx-2" />
           </button>
         </div>
       </div>
 
-      {/* White Box with Expand/Shrink Behavior */}
       <div className="flex items-center justify-center bg-gray-200">
         <motion.div
           ref={boxRef}
           initial={{ scale: 0.8, opacity: 0 }}
           animate={isVisible ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="bg-white p-6 rounded-lg shadow-lg w-[calc(100%-60px)] max-w-none m-8"
+          transition={{ duration: 0.65 }}
+          className="bg-white p-6 rounded-xl shadow-lg w-[calc(100%-60px)] max-w-none m-8"
         >
           <div className="py-8 px-10 text-center font-bold text-black text-2xl">
             At Yukti, we believe every individual deserves a fun, safe space to learn and grow.
@@ -76,7 +75,6 @@ export default function Home() {
         </motion.div>
       </div>
 
-      {/* Other Content */}
       <div className="flex">
         <div>
           <Image src="/1.png" width={400} height={200} alt="1st image" />
