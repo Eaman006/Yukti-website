@@ -1,28 +1,64 @@
-"use client"
-import { useRef } from "react";
+"use client";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { BsChevronDoubleDown } from "react-icons/bs";
 
 export default function Home() {
-  // Reference for the target section
-  const discoverSectionRef = useRef(null);
+  const boxRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isShrunk, setIsShrunk] = useState(false);
 
-  // Scroll function
-  const handleScroll = () => {
-    if (discoverSectionRef.current) {
-      discoverSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (boxRef.current) {
+        const rect = boxRef.current.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight * 1; 
+        const shrinkTrigger = rect.bottom < window.innerHeight * 1.2; // Starts shrinking 20% before exit
+
+        if (currentScrollY > lastScrollY) {
+          // Scrolling down: Expand and keep it visible
+          if (inView) {
+            setIsVisible(true);
+            setIsShrunk(false);
+          }
+        } else {
+          // Scrolling up: Shrink and keep it hidden before fully exiting
+          if (shrinkTrigger) {
+            setIsShrunk(true);
+            setIsVisible(false);
+          }
+        }
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    // ✅ Check if the box is already in view when the page loads
+    const checkInitialVisibility = () => {
+      if (boxRef.current) {
+        const rect = boxRef.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.8) {
+          setIsVisible(true);
+        }
+      }
+    };
+
+    checkInitialVisibility(); // Call this function once on mount
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
     <div>
+      {/* Hero Section */}
       <div className="relative w-full h-screen">
-        {/* Background Video */}
-        <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-fill z-[-1]">
+        <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
           <source src="/10.mp4" type="video/mp4" />
         </video>
 
-        {/* Heading and Subheading */}
         <div className="relative flex flex-col items-center pt-28 h-full text-center">
           <div className="text-white text-5xl font-extrabold m-2">
             Stepping into Virtual
@@ -32,25 +68,24 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Discover Button */}
-        <div ref={discoverSectionRef} className="absolute bottom-3 left-1/2 -translate-x-1/2">
-          <button 
-            onClick={handleScroll}
-            className="m-2 text-white bg-blue-400 hover:bg-blue-700 active:bg-blue-500 rounded-xl p-2 text-center font-bold flex"
-          >
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2">
+          <button className="m-2 text-white bg-blue-400 hover:bg-blue-700 active:bg-blue-500 rounded-xl p-2 text-center font-bold flex">
             Discover Us <BsChevronDoubleDown className="mt-1 mx-2" />
           </button>
         </div>
       </div>
 
-      {/* Section to Scroll To */}
-      <div>
-        <div className="absolute z-[-1] w-full h-40">
-          <Image src="/upper section.png" layout="fill" objectFit="fit" alt="background" />
-        </div>
-
-        <div className="pt-7 text-center pl-14 pr-20 font-bold w-full bg-cover bg-center text-black text-2xl h-40">
-          At Yukti, we believe every individual deserves a fun, safe space to learn and grow. Our mission is to empower the neurodiverse by creating engaging virtual worlds where everyday skills are built, right from home.
+      {/* White Box with Expand/Shrink Behavior */}
+      <div className="flex items-center justify-center bg-gray-200">
+        <div
+          ref={boxRef}
+          className={`scroll-box ${isVisible ? "expand" : isShrunk ? "shrink" : "hidden"} bg-white p-6 rounded-lg shadow-lg w-[calc(100%-60px)] max-w-none m-8`}
+        >
+          <div className="py-8 px-10 text-center font-bold text-black text-2xl">
+            At Yukti, we believe every individual deserves a fun, safe space to learn and grow.
+            Our mission is to empower the neurodiverse by creating engaging virtual worlds where
+            everyday skills are built, right from home.
+          </div>
         </div>
       </div>
 

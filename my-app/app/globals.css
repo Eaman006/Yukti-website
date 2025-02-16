@@ -19,21 +19,43 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
 /* Customize scrollbar */
 ::-webkit-scrollbar {
-  width: 12px; /* Adjust width */
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0000000e; /* Change track background */
+  background: #0000000e;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #626262; /* Change thumb color */
+  background: #626262;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569; /* Darken on hover */
+  background: #475569;
   cursor: pointer;
+}
+
+/* Scroll Box Animations */
+.scroll-box {
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.expand {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.shrink {
+  opacity: 0;
+  transform: scale(0.7);
+  pointer-events: none;
+}
+
+.hidden {
+  opacity: 0;
+  transform: scale(0.7);
 }
