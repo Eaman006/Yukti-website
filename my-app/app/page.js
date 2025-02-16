@@ -65,7 +65,7 @@ export default function Home() {
         </div>
 
         <div className="relative flex flex-col items-center pt-28 h-full text-center">
-          <div key={key} className="text-white text-5xl font-extrabold m-2">
+          <div key={key} className="text-white text-5xl font-extrabold m-2 cursor-default">
             <Typewriter
               words={["Stepping into Virtual"]}
               typeSpeed={100} // Typing speed
@@ -75,7 +75,7 @@ export default function Home() {
               cursorStyle="|" // Cursor appearance
             />
           </div>
-          <div className="text-lg text-white m-2">Transforming Learning for the Neurodiverse.</div>
+          <div className="text-lg text-white m-2 cursor-default">Transforming Learning for the Neurodiverse.</div>
         </div>
 
         <div ref={discoverSectionRef} className="absolute bottom-3 left-1/2 -translate-x-1/2">
@@ -94,7 +94,7 @@ export default function Home() {
           transition={{ duration: 0.65 }}
           className="bg-white p-6 rounded-xl shadow-lg w-[calc(100%-60px)] max-w-none m-8"
         >
-          <div className="py-8 px-10 text-center font-bold text-black text-2xl">
+          <div className="py-8 px-10 text-center font-bold text-black text-2xl cursor-default">
             At Yukti, we believe every individual deserves a fun, safe space to learn and grow.
             Our mission is to empower the neurodiverse by creating engaging virtual worlds where
             everyday skills are built, right from home.
@@ -120,37 +120,37 @@ export default function Home() {
       </motion.div>
 
       <div className="bg-gradient-to-r from-[#2f1ab4] to-[#7f7fff] p-2 h-full">
-        <div className="mx-5 text-5xl font-extrabold my-14 text-center">Features</div>
+        <div className="mx-5 text-5xl font-extrabold my-14 text-center cursor-default">Features</div>
         <div className="flex gap-14 mx-5">
           <div className="flex-row">
             <div>
               <Image src="/6.png" width={250} height={250} alt="vr image1" />
             </div>
-            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2">Virtual Classroom</div>
+            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2 cursor-default">Virtual Classroom</div>
           </div>
           <div className="flex-row">
             <div>
               <Image src="/4.png" width={250} height={250} alt="vr image2" />
             </div>
-            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2">Interactive characters</div>
+            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2 cursor-default">Interactive characters</div>
           </div>
           <div className="flex-row">
             <div>
               <Image src="/5.png" width={300} height={300} alt="vr image3" />
             </div>
-            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2">Personalized learning paths</div>
+            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2 cursor-default">Personalized learning paths</div>
           </div>
           <div className="flex-row">
             <div className="ml-10">
               <Image src="/7.png" width={235} height={235} alt="vr image4" />
             </div>
-            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2">Parent and doctors monitoring</div>
+            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2 cursor-default">Parent and doctors monitoring</div>
           </div>
           <div className="flex-row">
             <div>
               <Image src="/8.png" width={300} height={300} alt="vr image5" />
             </div>
-            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2">ADHD Friendly UI</div>
+            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2 cursor-default">ADHD Friendly UI</div>
           </div>
         </div>
       </div>
