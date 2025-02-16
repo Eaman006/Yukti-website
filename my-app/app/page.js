@@ -126,31 +126,31 @@ export default function Home() {
             <div>
               <Image src="/6.png" width={250} height={250} alt="vr image1" />
             </div>
-            <div className="text-center font-bold text-2xl">Virtual Classroom</div>
+            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2">Virtual Classroom</div>
           </div>
           <div className="flex-row">
             <div>
               <Image src="/4.png" width={250} height={250} alt="vr image2" />
             </div>
-            <div className="text-center font-bold text-2xl">Interactive characters</div>
+            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2">Interactive characters</div>
           </div>
           <div className="flex-row">
             <div>
               <Image src="/5.png" width={300} height={300} alt="vr image3" />
             </div>
-            <div className="text-center font-bold text-2xl">Personalized learning paths</div>
+            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2">Personalized learning paths</div>
           </div>
           <div className="flex-row">
             <div className="ml-10">
               <Image src="/7.png" width={235} height={235} alt="vr image4" />
             </div>
-            <div className="text-center font-bold text-2xl">Parent and doctors monitoring</div>
+            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2">Parent and doctors monitoring</div>
           </div>
           <div className="flex-row">
             <div>
               <Image src="/8.png" width={300} height={300} alt="vr image5" />
             </div>
-            <div className="text-center font-bold text-2xl">ADHD Friendly UI</div>
+            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2">ADHD Friendly UI</div>
           </div>
         </div>
       </div>
