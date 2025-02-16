@@ -110,7 +110,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-[#eb5b00] p-2 h-full">
+      <div className="bg-gradient-to-r from-[#2f1ab4] to-[#7f7fff] p-2 h-full">
         <div className="mx-5 text-5xl font-extrabold my-14 text-center">Features</div>
         <div className="flex gap-14 mx-5">
           <div className="flex-row">
