@@ -43,9 +43,11 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       <div className="relative w-full h-screen">
-        <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
-          <source src="/10.mp4" type="video/mp4" />
-        </video>
+        <div className="absolute top-0 left-0 bg-[#d2d8fb] z-[-1] w-full h-full">
+          <video autoPlay loop muted playsInline className="w-full h-full object-contain">
+            <source src="/10.mp4" type="video/mp4" />
+          </video>
+        </div>
 
         <div className="relative flex flex-col items-center pt-28 h-full text-center">
           <div className="text-white text-5xl font-extrabold m-2">Stepping into <span className="text-red-400">Virtual</span></div>
