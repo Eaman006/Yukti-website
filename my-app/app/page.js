@@ -11,12 +11,22 @@ export default function Home() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const discoverSectionRef = useRef(null);
   const [key, setKey] = useState(0);
-  const restartTyping = () => {
-    setKey((prevKey) => prevKey + 1); // Change key to reset Typewriter
-  };
   const imagesRef = useRef(null);
   const isInView = useInView(imagesRef, { once: false, margin: "-100px 0px" });
 
+  // Function to restart Typewriter animation
+  const restartTyping = () => {
+    setKey((prevKey) => prevKey + 1);
+  };
+
+  // Detect when the hero section comes into view and restart typing
+  const isHeroInView = useInView(boxRef, { once: false, margin: "-100px 0px" });
+
+  useEffect(() => {
+    if (isHeroInView) {
+      restartTyping(); // Restart Typewriter animation
+    }
+  }, [isHeroInView]);
 
   useEffect(() => {
     const handleScroll = () => {
