@@ -44,6 +44,7 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
   const handlediscover = () => {
     if (discoverSectionRef.current) {
       discoverSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -54,9 +55,11 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       <div className="relative w-full h-screen">
-        <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-fill z-[-1]">
-          <source src="/10.mp4" type="video/mp4" />
-        </video>
+        <div className="absolute top-0 left-0 bg-[#d2d8fb] z-[-1] w-full h-full">
+          <video autoPlay loop muted playsInline className="w-full h-full object-contain">
+            <source src="/10.mp4" type="video/mp4" />
+          </video>
+        </div>
 
         <div className="relative flex flex-col items-center pt-28 h-full text-center">
           <div key={key} className="text-white text-5xl font-extrabold m-2">
@@ -73,7 +76,7 @@ export default function Home() {
         </div>
 
         <div ref={discoverSectionRef} className="absolute bottom-3 left-1/2 -translate-x-1/2">
-          <button onClick={handlediscover} className="m-2 text-white bg-blue-400 hover:bg-blue-700 active:bg-blue-500 rounded-xl p-2 text-center font-bold flex">
+          <button onClick={handlediscover} className="m-2 text-white bg-blue-400 hover:bg-blue-700 scale-110 hover:scale-125 active:bg-blue-500 rounded-2xl pl-4 p-2 text-center font-bold flex transition-all duration-300">
             Discover Us <BsChevronDoubleDown className="mt-1 mx-2 animate-bounce" />
           </button>
         </div>
@@ -85,8 +88,8 @@ export default function Home() {
           ref={boxRef}
           initial={{ scale: 0.8, opacity: 0 }}
           animate={isVisible ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="bg-white p-6 rounded-lg shadow-lg w-[calc(100%-60px)] max-w-none m-8"
+          transition={{ duration: 0.65 }}
+          className="bg-white p-6 rounded-xl shadow-lg w-[calc(100%-60px)] max-w-none m-8"
         >
           <div className="py-8 px-10 text-center font-bold text-black text-2xl">
             At Yukti, we believe every individual deserves a fun, safe space to learn and grow.
@@ -96,7 +99,6 @@ export default function Home() {
         </motion.div>
       </div>
 
-      {/* Other Content */}
       <div className="flex">
         <div>
           <Image src="/1.png" width={400} height={200} alt="1st image" />
@@ -108,7 +110,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-[#eb5b00] p-2 h-screen">
+      <div className="bg-[#eb5b00] p-2 h-full">
         <div className="mx-5 text-5xl font-extrabold my-14 text-center">Features</div>
         <div className="flex gap-14 mx-5">
           <div className="flex-row">
