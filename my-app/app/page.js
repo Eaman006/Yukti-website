@@ -8,6 +8,7 @@ export default function Home() {
   const boxRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const discoverSectionRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,12 +39,17 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+  const handlediscover = () => {
+    if (discoverSectionRef.current) {
+      discoverSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <div>
       {/* Hero Section */}
       <div className="relative w-full h-screen">
-        <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
+        <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-fill z-[-1]">
           <source src="/10.mp4" type="video/mp4" />
         </video>
 
@@ -52,8 +58,8 @@ export default function Home() {
           <div className="text-lg text-white m-2">Transforming Learning for the Neurodiverse.</div>
         </div>
 
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2">
-          <button className="m-2 text-white bg-blue-400 hover:bg-blue-700 active:bg-blue-500 rounded-xl p-2 text-center font-bold flex">
+        <div ref={discoverSectionRef} className="absolute bottom-3 left-1/2 -translate-x-1/2">
+          <button onClick={handlediscover} className="m-2 text-white bg-blue-400 hover:bg-blue-700 active:bg-blue-500 rounded-xl p-2 text-center font-bold flex">
             Discover Us <BsChevronDoubleDown className="mt-1 mx-2" />
           </button>
         </div>
