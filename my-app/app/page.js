@@ -63,14 +63,14 @@ export default function Home() {
 
         <div className="relative flex flex-col items-center pt-28 h-full text-center">
           <div key={key} className="text-white text-5xl font-extrabold m-2">
-          <Typewriter
-            words={["Stepping into Virtual"]}
-            typeSpeed={100} // Typing speed
-            deleteSpeed={0} // Ensures it doesn't delete
-            delaySpeed={1000} // Delay before stopping
-            cursor
-            cursorStyle="|" // Cursor appearance
-          />
+            <Typewriter
+              words={["Stepping into Virtual"]}
+              typeSpeed={100} // Typing speed
+              deleteSpeed={0} // Ensures it doesn't delete
+              delaySpeed={1000} // Delay before stopping
+              cursor
+              cursorStyle="|" // Cursor appearance
+            />
           </div>
           <div className="text-lg text-white m-2">Transforming Learning for the Neurodiverse.</div>
         </div>
@@ -145,6 +145,15 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="bg-[#d91656] w-full h-screen relative">
+        <Image
+          src="/11.png"
+          alt="Background Image"
+          fill
+          className="object-fill"
+        />
+      </div>
+
     </div>
   );
 }
