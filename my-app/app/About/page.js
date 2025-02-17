@@ -3,13 +3,9 @@ import Image from 'next/image'
 
 const page = () => {
   return (
-    <div className='pt-20'>
-      <div className='absolute z-[-1] w-full h-56'>
-        <Image src="/2.png" layout="fill" objectFit="fit" alt="background" />
-
-      </div>
+    <div className='pt-20 bg-[#d2d8fb] h-screen w-full'>
       <div className='w-full mx-auto text-center font-bold text-5xl mt-8 h-32'>
-        About US...
+        About Us
       </div>
       <div className='flex m-2 p-2 font-bold text-xl'>
         <div>
@@ -17,7 +13,6 @@ const page = () => {
         We focus on motor skill development, social interactions, and cognitive enhancement of neurodiverse children.
         </div>
         <div className='w-full'>
-
         </div>
       </div>
     </div>

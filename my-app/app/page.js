@@ -11,22 +11,12 @@ export default function Home() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const discoverSectionRef = useRef(null);
   const [key, setKey] = useState(0);
+  const restartTyping = () => {
+    setKey((prevKey) => prevKey + 1); // Change key to reset Typewriter
+  };
   const imagesRef = useRef(null);
   const isInView = useInView(imagesRef, { once: false, margin: "-100px 0px" });
 
-  // Function to restart Typewriter animation
-  const restartTyping = () => {
-    setKey((prevKey) => prevKey + 1);
-  };
-
-  // Detect when the hero section comes into view and restart typing
-  const isHeroInView = useInView(boxRef, { once: false, margin: "-100px 0px" });
-
-  useEffect(() => {
-    if (isHeroInView) {
-      restartTyping(); // Restart Typewriter animation
-    }
-  }, [isHeroInView]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -112,66 +102,61 @@ export default function Home() {
         </motion.div>
       </div>
 
+      <div className="bg-gradient-to-r from-[#2f1ab4] to-[#7f7fff] p-2 h-full">
       <motion.div
         ref={imagesRef}
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 1.3, ease: "easeOut" }}
         className="flex opacity-100"
       >
+      
         <div>
-          <Image src="/1.png" width={400} height={200} alt="1st image" priority={true} />
-        </div>
-        <div className="pl-20 bg-[#cba35c] ml-auto">
-          <div className="bg-[#754e1a] h-full">
-            <Image src="/3.png" width={500} height={500} alt="2nd image" priority={true} />
-          </div>
-        </div>
-      </motion.div>
-
-      <div className="bg-gradient-to-r from-[#2f1ab4] to-[#7f7fff] p-2 h-full">
-        <div className="mx-5 text-5xl font-extrabold my-14 text-center cursor-default">Features</div>
-        <div className="flex gap-14 mx-5">
-          <div className="flex-row">
-            <div>
-              <Image src="/6.png" width={250} height={250} alt="vr image1" />
+          <div className="mx-5 text-5xl font-extrabold my-5 text-center cursor-default">Features</div>
+          <div className="flex gap-14 mx-5">
+            <div className="flex-row">
+              <div>
+                <Image src="/6.png" width={250} height={250} alt="vr image1" />
+              </div>
+              <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2 cursor-default">Virtual Classroom</div>
             </div>
-            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2 cursor-default">Virtual Classroom</div>
-          </div>
-          <div className="flex-row">
-            <div>
-              <Image src="/4.png" width={250} height={250} alt="vr image2" />
+            <div className="flex-row">
+              <div>
+                <Image src="/4.png" width={250} height={250} alt="vr image2" />
+              </div>
+              <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2 cursor-default">Interactive characters</div>
             </div>
-            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2 cursor-default">Interactive characters</div>
-          </div>
-          <div className="flex-row">
-            <div>
-              <Image src="/5.png" width={300} height={300} alt="vr image3" />
+            <div className="flex-row">
+              <div>
+                <Image src="/5.png" width={300} height={300} alt="vr image3" />
+              </div>
+              <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2 cursor-default">Personalized learning paths</div>
             </div>
-            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2 cursor-default">Personalized learning paths</div>
-          </div>
-          <div className="flex-row">
-            <div className="ml-10">
-              <Image src="/7.png" width={235} height={235} alt="vr image4" />
+            <div className="flex-row">
+              <div className="ml-10">
+                <Image src="/7.png" width={235} height={235} alt="vr image4" />
+              </div>
+              <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2 cursor-default">Parent and doctors monitoring</div>
             </div>
-            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2 cursor-default">Parent and doctors monitoring</div>
-          </div>
-          <div className="flex-row">
-            <div>
-              <Image src="/8.png" width={300} height={300} alt="vr image5" />
+            <div className="flex-row">
+              <div>
+                <Image src="/8.png" width={300} height={300} alt="vr image5" />
+              </div>
+              <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2 cursor-default">ADHD Friendly UI</div>
             </div>
-            <div className="text-center font-bold text-2xl bg-white text-black m-2 rounded-full p-2 cursor-default">ADHD Friendly UI</div>
           </div>
         </div>
+        </motion.div> 
       </div>
-      <div className="bg-[#d91656] w-full h-screen relative">
+
+      {/* <div className="bg-[#d91656] w-full h-screen relative">
         <Image
           src="/11.png"
           alt="Background Image"
           fill
           className="object-fill"
         />
-      </div>
+      </div> */}
 
     </div>
   );
