@@ -50,7 +50,7 @@ export default function Home() {
 
   const handlediscover = () => {
     if (discoverSectionRef.current) {
-      discoverSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      discoverSectionRef.current.scrollIntoView({ behavior:"smooth" , block: "start" });
     }
   };
 
@@ -107,8 +107,8 @@ export default function Home() {
         ref={imagesRef}
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-        transition={{ duration: 1.3, ease: "easeOut" }}
-        className="flex opacity-100"
+        transition={{ duration: 1.1, ease: "easeOut" }}
+        className="flex opacity-100 overflow-hidden z-[-1]"
       >
       
         <div>
