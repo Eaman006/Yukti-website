@@ -14,12 +14,7 @@ const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [isPending, startTransition] = useTransition(); // Handles loading state
-
-<<<<<<< HEAD
-  const getpathname = (path) => (pathname === path ? "text-red-600 border-red-600 hover:-translate-y-1" : "hover:text-red-400 border-transparent hover:border-red-400 hover:-translate-y-1");
-=======
   const getpathname = (path) => (pathname === path ? "text-red-600 border-red-600 hover:-translate-y-1" : "hover:text-red-400 border-transparent hover:-translate-y-1");
->>>>>>> working
 
   // Custom function to handle navigation with loading
   const handleNavigation = (url) => {
