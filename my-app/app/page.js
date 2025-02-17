@@ -59,21 +59,6 @@ export default function Home() {
       {/* Hero Section */}
       <div className="relative w-full h-screen">
         <div className="absolute top-0 left-0 bg-[#d2d8fb] z-[-1] w-full h-full">
-<<<<<<< HEAD
-          <video autoPlay loop muted playsInline className="w-full h-full object-contain">
-            <source src="/10.mp4" type="video/mp4" />
-          </video>
-        </div>
-
-        <div className="relative flex flex-col items-center pt-28 h-full text-center">
-          <div className="text-white text-5xl font-extrabold m-2">Stepping into <span className="text-red-400">Virtual</span></div>
-          <div className="text-xl font-bold text-white m-2">Transforming Your <span className="text-2xl text-red-500">Reality</span></div>
-        </div>
-
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2">
-          <button className="m-2 text-white bg-blue-400 hover:bg-blue-700 hover:scale-125 active:bg-blue-500 rounded-2xl pl-4 p-2 text-center font-bold flex transition-all duration-300">
-            Discover Us <BsChevronDoubleDown className="mt-1 mx-2" />
-=======
           <video autoPlay loop muted playsInline className="w-full h-full object-fill">
             <source src="/10.mp4" type="video/mp4" />
           </video>
@@ -96,7 +81,6 @@ export default function Home() {
         <div ref={discoverSectionRef} className="absolute bottom-3 left-1/2 -translate-x-1/2">
           <button onClick={handlediscover} className="m-2 text-white bg-blue-400 hover:bg-blue-700 scale-110 hover:scale-125 active:bg-blue-500 rounded-2xl pl-4 p-2 text-center font-bold flex transition-all duration-300">
             Discover Us <BsChevronDoubleDown className="mt-1 mx-2 animate-bounce" />
->>>>>>> working
           </button>
         </div>
       </div>
@@ -117,9 +101,6 @@ export default function Home() {
         </motion.div>
       </div>
 
-<<<<<<< HEAD
-      <div className="flex">
-=======
       <div className="bg-gradient-to-r from-[#2f1ab4] to-[#7f7fff] p-2 h-full">
       <motion.div
         ref={imagesRef}
@@ -129,7 +110,6 @@ export default function Home() {
         className="flex opacity-100 overflow-hidden z-[-1]"
       >
       
->>>>>>> working
         <div>
           <div className="mx-5 text-5xl font-extrabold my-5 text-center cursor-default">Features</div>
           <div className="flex gap-14 mx-5">
